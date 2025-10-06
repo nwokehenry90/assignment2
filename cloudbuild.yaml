@@ -31,4 +31,3 @@ images:
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
   logging: CLOUD_LOGGING_ONLY
-  machineType: 'E2_STANDARD_4'
