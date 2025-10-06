@@ -10,6 +10,21 @@ steps:
     args: ['push', 
            'us-central1-docker.pkg.dev/my-project-gcp-pipeline/henry-100993730/assignment2:${SHORT_SHA}']
 
+  # Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+    - 'run'
+    - 'deploy'
+    - 'assignment2-henry-100993730'
+    - '--image'
+    - 'us-central1-docker.pkg.dev/my-project-gcp-pipeline/henry-100993730/assignment2:${SHORT_SHA}'
+    - '--region'
+    - 'us-central1'
+    - '--port'
+    - '3000'
+    - '--allow-unauthenticated'
+
 images:
   - 'us-central1-docker.pkg.dev/my-project-gcp-pipeline/henry-100993730/assignment2:${SHORT_SHA}'
   
