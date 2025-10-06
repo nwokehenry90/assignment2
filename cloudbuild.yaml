@@ -6,14 +6,13 @@ steps:
     - '--no-cache'
     - '-t'
     - 'us-central1-docker.pkg.dev/my-project-gcp-pipeline/henry-100993730/assignment2:${SHORT_SHA}'
-    - '-t'
-    - 'us-central1-docker.pkg.dev/my-project-gcp-pipeline/henry-100993730/assignment2:latest'
     - '.'
 
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '--all-tags',
-           'us-central1-docker.pkg.dev/my-project-gcp-pipeline/henry-100993730/assignment2']
+    args: 
+    - 'push'
+    - 'us-central1-docker.pkg.dev/my-project-gcp-pipeline/henry-100993730/assignment2:${SHORT_SHA}'
 
   # Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
